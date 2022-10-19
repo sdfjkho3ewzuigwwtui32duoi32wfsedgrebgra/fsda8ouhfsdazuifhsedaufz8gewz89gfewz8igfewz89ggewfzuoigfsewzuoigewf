@@ -10,21 +10,23 @@ if getgenv().library then
     getgenv().library:Unload()
 end
 
-if not isfolder("baller") then makefolder("baller") end
-if not isfolder("baller/" .. Games) then makefolder("baller/" .. Games) end
-
-local MenuName = isfile("baller/MenuName.txt") and readfile("baller/MenuName.txt") or "baller.lua"
-
 local Games = ({
-	[4483381587] = 'Baseplate',
+    [4483381587] = 'Baseplate',
     [863266079] = 'AR2',
-	[286090429] = 'Arsenal',
-	[10293798252] = 'Reloaded', -- Arsenal Reloaded
+    [286090429] = 'Arsenal',
+    [10293798252] = 'Reloaded', -- Arsenal Reloaded
 })[game.PlaceId]
 
 if not Games then
     while true do end
 end
+
+if not isfolder("baller") then makefolder("baller") end
+if not isfolder("baller/" .. Games) then makefolder("baller/" .. Games) end
+
+local MenuName = isfile("baller/MenuName.txt") and readfile("baller/MenuName.txt") or "baller.lua"
+
+
 
 local library = {tabs = {}, draggable = true, flags = {}, title = MenuName, open = false, mousestate = true, popup = nil, instances = {}, connections = {}, options = {}, notifications = {}, tabSize = 0, theme = {}, foldername = 'baller\\' .. Games .. '\\Configs', fileext = '.lua'}
 getgenv().library = library
